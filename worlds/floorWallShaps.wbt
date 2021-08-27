@@ -1,0 +1,250 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+  contactProperties [
+    ContactProperties {
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.9994745002664628 0.03234077740284136 0.002190304564244694 5.588433375540645
+  position 0.26657430319262243 5.76326747418282 7.821721105189726
+}
+Background {
+  skyColor [
+    1 1 1
+  ]
+  luminosity 0
+}
+DEF floorSolid Solid {
+  children [
+    DEF Floor Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.113725 0.223529 0.337255
+          emissiveColor 0.121569 0.247059 0.368627
+          specularColor 0.109804 0.223529 0.333333
+        }
+      }
+      geometry Box {
+        size 5 0.1 5
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject DEF Floor Shape {
+    appearance Appearance {
+      material Material {
+        diffuseColor 0.113725 0.223529 0.337255
+        emissiveColor 0.121569 0.247059 0.368627
+        specularColor 0.109804 0.223529 0.333333
+      }
+    }
+    geometry Box {
+      size 5 0.1 5
+    }
+  }
+}
+DEF wall1 Solid {
+  translation 0 0.1 2.46
+  children [
+    DEF wall1Shape Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.666667 0 0
+          emissiveColor 0.333333 0.333333 1
+        }
+      }
+      geometry Box {
+        size 5 0.3 0.1
+      }
+    }
+  ]
+  boundingObject USE wall1Shape
+}
+DEF wall2 Solid {
+  translation -2.46 0.1 0.0100015
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    DEF wall2Shape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.333333 0.333333 1
+        }
+      }
+      geometry Box {
+        size 5 0.3 0.1
+      }
+    }
+  ]
+  boundingObject USE wall2Shape
+}
+DEF wall3 Solid {
+  translation 2.49 0.1 0.00999718
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    DEF wall3Shape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.333333 0.333333 1
+        }
+      }
+      geometry Box {
+        size 5 0.3 0.1
+      }
+    }
+  ]
+  boundingObject USE wall3Shape
+}
+DEF wall4 Solid {
+  translation 0 0.1 -2.46
+  children [
+    DEF wall4Shape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.333333 0.333333 1
+        }
+      }
+      geometry Box {
+        size 5 0.3 0.1
+      }
+    }
+  ]
+  boundingObject USE wall4Shape
+}
+DirectionalLight {
+  direction -1 -1 -1
+  castShadows TRUE
+}
+DEF sylinder Solid {
+  translation -0.73 0.48 0
+  children [
+    DEF sylinderShape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.556863 0.317647 0.580392
+        }
+      }
+      geometry Cylinder {
+        height 1
+        radius 0.3
+        subdivision 24
+      }
+    }
+  ]
+  boundingObject USE sylinderShape
+}
+DEF sphere Solid {
+  translation 0.45960906037966076 0.5421520000000002 1.7924565637640113
+  rotation 0.7364208709184216 0.11604697834299525 0.6664963613503183 1.7474110180002806
+  children [
+    DEF shareShape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.556863 0.317647 0.580392
+        }
+      }
+      geometry Sphere {
+        radius 0.5
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE shareShape
+  physics Physics {
+    density -1
+    mass 5
+  }
+  linearVelocity 0.000884441496607428 -1.1929878259049068e-15 0.00424539867461394
+  angularVelocity 0.00862619409169106 -0.008663055974254373 -0.0017970901197342033
+}
+DEF cone Solid {
+  translation -1.7299999999999998 0.5599019151579558 2.1478012287346577e-16
+  rotation 0.6904341733975969 -0.008017844720988836 -0.7233507906754559 7.544323528549503e-16
+  children [
+    DEF coneShape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.556863 0.317647 0.580392
+        }
+      }
+      geometry Cone {
+        bottomRadius 0.5
+        height 1
+      }
+    }
+  ]
+  boundingObject Group {
+    children [
+      Transform {
+        translation 0 -0.31 0
+        children [
+          Cylinder {
+            height 0.4
+            radius 0.5
+          }
+        ]
+      }
+      Transform {
+        translation 0 0.13 0
+        children [
+          Cylinder {
+            height 0.6
+            radius 0.2
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 0.5
+  }
+  linearVelocity 5.885042245724988e-19 -1.1849389704821098e-07 -4.609261793872398e-18
+  angularVelocity 5.461242063700013e-17 -4.618674617477996e-18 -1.7921931629612724e-17
+}
+DEF wheel Solid {
+  translation -1.73 -0.25 0
+  children [
+    DEF pipe Transform {
+      translation 3.47 0.89 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0.556863 0.317647 0.580392
+            }
+          }
+          geometry Cylinder {
+            height 0.5
+            radius 0.2
+            subdivision 24
+          }
+        }
+      ]
+    }
+    DEF wheel1 Transform {
+      translation 3.47 0.48 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0.556863 0.317647 0.580392
+            }
+          }
+          geometry Cylinder {
+            height 0.4
+            radius 0.4
+            subdivision 24
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject Group {
+    children [
+      USE wheel1
+      USE pipe
+    ]
+  }
+}

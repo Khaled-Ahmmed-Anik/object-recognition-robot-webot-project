@@ -1,0 +1,434 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+  contactProperties [
+    ContactProperties {
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.9959336042209174 -0.08612157156729991 -0.02644486517854583 0.7774121057421947
+  position -0.29510345391690507 7.705803470835379 8.648090063500227
+}
+Background {
+  skyColor [
+    1 1 1
+  ]
+  luminosity 0
+}
+DEF floorSolid Solid {
+  scale 2 2 2
+  children [
+    DEF Floor Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.113725 0.223529 0.337255
+          emissiveColor 0.121569 0.247059 0.368627
+          specularColor 0.109804 0.223529 0.333333
+        }
+      }
+      geometry Box {
+        size 5 0.1 5
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject DEF Floor Shape {
+    appearance Appearance {
+      material Material {
+        diffuseColor 0.113725 0.223529 0.337255
+        emissiveColor 0.121569 0.247059 0.368627
+        specularColor 0.109804 0.223529 0.333333
+      }
+    }
+    geometry Box {
+      size 5 0.1 5
+    }
+  }
+}
+DEF wall1 Solid {
+  translation 0 0.23 4.93
+  scale 2 2 2
+  children [
+    DEF wall1Shape Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.666667 0 0
+          emissiveColor 0.333333 0.666667 1
+        }
+      }
+      geometry Box {
+        size 5 0.3 0.1
+      }
+    }
+  ]
+  boundingObject USE wall1Shape
+}
+DEF wall2 Solid {
+  translation -4.9 0.23 0.010002
+  rotation 0 1 0 -1.5707953071795862
+  scale 2 2 2
+  children [
+    DEF wall2Shape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.333333 0.333333 1
+        }
+      }
+      geometry Box {
+        size 5 0.3 0.1
+      }
+    }
+  ]
+  boundingObject USE wall2Shape
+}
+DEF wall3 Solid {
+  translation 4.91 0.24 0.00999476
+  rotation 0 1 0 -1.5707953071795862
+  scale 2 2 2
+  children [
+    DEF wall3Shape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.333333 0.333333 1
+        }
+      }
+      geometry Box {
+        size 5 0.3 0.1
+      }
+    }
+  ]
+  boundingObject USE wall3Shape
+}
+DEF wall4 Solid {
+  translation 0 0.24 -4.92
+  scale 2 2 2
+  children [
+    DEF wall4Shape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.333333 0.333333 1
+        }
+      }
+      geometry Box {
+        size 5 0.3 0.1
+      }
+    }
+  ]
+  boundingObject USE wall4Shape
+}
+DirectionalLight {
+  direction -1 -1 -1
+  castShadows TRUE
+}
+DEF sylinder Solid {
+  translation -2.52 0.48 2.22
+  children [
+    DEF sylinderShape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.556863 0.317647 0.580392
+        }
+      }
+      geometry Cylinder {
+        height 1
+        radius 0.3
+        subdivision 24
+      }
+    }
+  ]
+  boundingObject USE sylinderShape
+}
+DEF sphere Solid {
+  translation 4.312524755813838 0.5921520000002615 0.639713187841216
+  rotation -0.34232952035000375 0.8538208101548007 0.3921740986392858 2.4993181949769405
+  children [
+    DEF shareShape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.556863 0.317647 0.580392
+        }
+      }
+      geometry Sphere {
+        radius 0.5
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE shareShape
+  physics Physics {
+    density -1
+    mass 5
+  }
+  linearVelocity 0 -2.153862483469881e-12 0
+}
+DEF cone Solid {
+  translation -3.02812727014825 0.6099581004345541 -1.9685687059745698
+  rotation 0.010356969792202585 -0.06520664872289357 0.9978180325786125 0.00010838159426531086
+  children [
+    DEF coneShape Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.556863 0.317647 0.580392
+        }
+      }
+      geometry Cone {
+        bottomRadius 0.5
+        height 1
+      }
+    }
+  ]
+  boundingObject Group {
+    children [
+      Transform {
+        translation 0 -0.31 0
+        children [
+          Cylinder {
+            height 0.4
+            radius 0.5
+          }
+        ]
+      }
+      Transform {
+        translation 0 0.13 0
+        children [
+          Cylinder {
+            height 0.6
+            radius 0.2
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 0.5
+  }
+  linearVelocity -3.752055519045846e-05 4.667496606776927e-05 1.4383722622890545e-06
+  angularVelocity 5.044859387438126e-06 -1.430515772741043e-12 0.00013159623811512177
+}
+DEF wheel Solid {
+  translation -0.8 -0.25 -1.93
+  children [
+    DEF pipe Transform {
+      translation 3.47 0.89 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0.556863 0.317647 0.580392
+            }
+          }
+          geometry Cylinder {
+            height 0.5
+            radius 0.2
+            subdivision 24
+          }
+        }
+      ]
+    }
+    DEF wheel1 Transform {
+      translation 3.47 0.48 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0.556863 0.317647 0.580392
+            }
+          }
+          geometry Cylinder {
+            height 0.4
+            radius 0.4
+            subdivision 24
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject Group {
+    children [
+      USE wheel1
+      USE pipe
+    ]
+  }
+}
+Robot {
+  translation 1.7015869740951767e-05 0.24123707467501448 0.5106350634787611
+  rotation 0.9999809857929883 1.4781522112755992e-06 -0.006166688762881817 0.004041345872010525
+  scale 4 4 4
+  children [
+    DistanceSensor {
+      translation 0.02 0 0.1
+      rotation 0 -1 0 1.27
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.666667 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation -0.02 0 0.1
+      rotation 0 -1 0 1.87
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.666667 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+      physics Physics {
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1.7872588295704018e-08
+        anchor -0.06 2.71051e-20 0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06000001884018633 0.00012801013195881783 0.04999988046183303
+        rotation -1.3267619879480896e-08 1.3172426949329138e-08 0.9999999999999998 1.56999995306573
+        children [
+          DEF robot_wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.643137 0.0235294
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE robot_wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -2.9485088055168305e-08
+        anchor 0.06 6.27425e-05 0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05999998171848761 0.00012876190082483288 0.04999988310851299
+        rotation 1.1634710201546113e-08 -1.1705526587981807e-08 0.9999999999999998 1.5699999332231198
+        children [
+          DEF robot_wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.643137 0.0235294
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE robot_wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1.1088948804928998e-08
+        anchor 0.06 6.27424e-05 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.05999997793164922 0.00012483869998462896 -0.05000013634056855
+        rotation -1.5991430609652264e-08 1.5877354716941654e-08 0.9999999999999997 1.5699998928034402
+        children [
+          DEF robot_wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.643137 0.0235294
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE robot_wheel
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -3.032318887128479e-08
+        anchor -0.06 6.27012e-05 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06000002262936128 0.00012408693112591593 -0.050000138995543474
+        rotation -2.3343742318918553e-08 2.3228291900096813e-08 0.9999999999999996 1.5699999328109766
+        children [
+          DEF robot_wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.666667 0
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE robot_wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF body Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+  ]
+  boundingObject USE body
+  physics Physics {
+  }
+  linearVelocity -6.23528328097548e-08 -2.236995364937959e-06 -6.23979773717881e-08
+  angularVelocity -3.0946797182257225e-07 4.2006115517052305e-09 3.988358055939117e-07
+}
